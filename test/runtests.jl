@@ -1,7 +1,8 @@
 using DataDeps
+using DataFrames
 using GHCNData
 using Test
 
 @testset "GHCNData.jl" begin
-    @show ENV["DATADEPS_ALWAYS_ACCEPT"]
+    include("dataset_loading.jl")
 end
