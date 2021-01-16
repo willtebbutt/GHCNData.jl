@@ -11,9 +11,10 @@ include("postprocessing.jl")
 
 export
     load_station_metadata,
-    load_country_metadata,
+    load_countries_metadata,
     load_inventories,
     load_data_file,
     convert_to_time_series,
     select_data
+
 end
