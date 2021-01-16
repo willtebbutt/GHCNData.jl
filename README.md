@@ -15,15 +15,7 @@ If you use this data, you should acknowledge it appropriately. Instruction for d
 
 While the GHCN data is fairly straightforward, it's not as simple as just downloading a single file and opening it as a `DataFrame`.
 There are a few different kinds of files that you need to be aware of, each of which has a well-documented but non-standard format.
-As such, it makes sense to implement the functionality to load the files in a format more ammenable to standard workflows.
-
-
-
-# Requirements
-
-Presently, this package assumes that you have `tar` installed on your system.
-If this isn't true for you system, please either install it or open an issue (probably this package should be using [`Tar.jl`](https://github.com/JuliaIO/Tar.jl) anyway -- I'll make this change if people need it).
-
+As such, it makes sense to implement the functionality to load the files in a format more amenable to standard workflows.
 
 
 # Usage

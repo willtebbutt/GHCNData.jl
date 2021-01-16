@@ -35,15 +35,6 @@ Name of the file containing all of the ghcn daily data.
 const ghcnd_data = "ghcnd_all.tar.gz"
 const ghcnd_data_dir = "ghcnd_all"
 
-"""
-    uncompress_all_data(fname="ghcnd_all.tar.gz")
-
-`download_all_data` obtained a `tar.gz`. This function uncompresses it. Assumes a working
-installation of tar.
-"""
-function uncompress_all_data(fname="ghcnd_all.tar.gz")
-    run(`tar xzvf $(ghcnd_data * "tar.gz")`)
-end
 
 # As per the suggestion in the DataDeps doc, we perform DataDep registration in __init__.
 function __init__()
@@ -66,6 +57,6 @@ function __init__()
         "ghcn-data",
         "GHCN country codes.",
         ghcn_root_dir * ghcnd_data,
-        post_fetch_method=(local_filepath) -> run(`tar xzvf $(local_filepath)`),
+        post_fetch_method=unpack,
     ))
 end
