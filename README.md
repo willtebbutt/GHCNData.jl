@@ -7,14 +7,14 @@
 
 Utility functionality to help getting hold of daily data from the Global Historical Climatology Network archive.
 
-If you use this data, you should acknowledge it appropriately. Instruction for doing so can be found in [NOAA's readme](https://www1.ncdc.noaa.gov/pub/data/ghcn/daily/readme.txt).
+If you use this data, you should acknowledge it appropriately. Instruction for doing so can be found at the top of [NOAA's readme](https://www1.ncdc.noaa.gov/pub/data/ghcn/daily/readme.txt).
 
 
 
 # Why Bother?
 
 While the GHCN data is fairly straightforward, it's not as simple as just downloading a single file and opening it as a `DataFrame`.
-There are a few different kinds of files that you need to be aware of, each of which has a well-documented but rather non-standard format.
+There are a few different kinds of files that you need to be aware of, each of which has a well-documented but non-standard format.
 As such, it makes sense to implement the functionality to load the files in a format more ammenable to standard workflows.
 
 
@@ -22,7 +22,7 @@ As such, it makes sense to implement the functionality to load the files in a fo
 # Requirements
 
 Presently, this package assumes that you have `tar` installed on your system.
-If this isn't true for you system, please either install it or open an issue (probably this package should be using [`Tar.jl`](https://github.com/JuliaIO/Tar.jl) anyway).
+If this isn't true for you system, please either install it or open an issue (probably this package should be using [`Tar.jl`](https://github.com/JuliaIO/Tar.jl) anyway -- I'll make this change if people need it).
 
 
 
@@ -30,7 +30,7 @@ If this isn't true for you system, please either install it or open an issue (pr
 
 ## Data Loading
 
-This package basically offers helper functions to download and load the data offered by NOAA. There are four functions that you should be aware of
+This package provides helper functions to download and load the data offered by NOAA. There are four core functions that you should be aware of
 ```julia
 load_station_metadata
 load_inventories
@@ -54,9 +54,13 @@ You might also be interested in, for example, the properties of the station in q
 
 ## Helper Functions
 
-This package presently provides exactly two bits of functionality to process the data a bit once it's been loaded.
+This package presently provides two bits of functionality to process the data a bit once it's been loaded.
 
-`select_data` pretty much implements the workflow discussed above, while `convert_to_time_series` "stacks" the output of `load_data_file`, converting from 1 row == 1 month (different day's data live in different columns), to a format in which 1 row == 1 day. Both of these functions are quite opinionated, so they're probably helpful examples of things that you might want to do with the GHCN data, but you'll probably need to tweak them somewhat for your use-case.
+`select_data` pretty much implements the workflow discussed above.
+
+`convert_to_time_series` "stacks" the output of `load_data_file`, converting from 1 row == 1 month (different day's data live in different columns in the raw data), to a format in which 1 row == 1 day.
+
+Both functions are quite opinionated, so while they're hopefully helpful examples of things that you might want to do with the GHCN data, you'll probably need to tweak them a bit for your use-case.
 
 
 
@@ -87,4 +91,4 @@ If you have any thoughts on how this might be made to work, please open an issue
 
 # Related Work
 
-Scott's Python package.
+Scott Hosking [provides similar functionality](https://github.com/scotthosking/get-station-data) in a Python package.
