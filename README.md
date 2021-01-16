@@ -7,9 +7,7 @@
 
 Utility functionality to help getting hold of daily data from the Global Historical Climatology Network archive.
 
-You should read carefully the correct way to acknowledge the use of this data set / the
-appropriate papers to cite at the top of this readme:
-https://www1.ncdc.noaa.gov/pub/data/ghcn/daily/readme.txt
+If you use this data, you should acknowledge it appropriately. Instruction for doing so can be found in [NOAA's readme](https://www1.ncdc.noaa.gov/pub/data/ghcn/daily/readme.txt).
 
 
 
