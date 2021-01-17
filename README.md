@@ -74,11 +74,9 @@ If you either find a bug, or think something looks suspicious, please open an is
 
 
 
-# Why are there no tests?
+# Why are there so few tests?
 
-I'm not really sure how to test this stuff using CI because it involves rather large data sets.
-If you have any thoughts on how this might be made to work, please open an issue / PR.
-
+Three of the four core functions listed above are lightly tested -- `load_data_file` has yet to be tested because, as presently implemented, the CI runner would need to download the _entire_ collection of daily data for each run, which seems impractical. If you have any suggestions for how to alleviate this, please open an issue / PR!
 
 
 # Related Work
