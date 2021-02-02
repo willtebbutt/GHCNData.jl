@@ -133,5 +133,5 @@ function select_data(
         return only(unique(filter(!ismissing, lat_lon_vals)))
     end
 
-    return joint_data_matrix, lat_lon_pairs
+    return joint_data_matrix, lat_lon_pairs, df.ID
 end
