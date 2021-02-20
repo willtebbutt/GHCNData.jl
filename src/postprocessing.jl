@@ -130,8 +130,17 @@ function select_data(
         lat_lon_vals = getproperty(joint_data_df, Symbol("lat_lon_$n"))
 
         # Pull out unique lat-lon pair.
-        return only(unique(filter(!ismissing, lat_lon_vals)))
+        if all(ismissing, lat_lon_vals)
+            return missing
+        else
+            return only(unique(filter(!ismissing, lat_lon_vals)))
+        end
     end
 
-    return joint_data_matrix, lat_lon_pairs, df.ID
+    present_idx = findall(!ismissing, lat_lon_pairs)
+    joint_data_matrix = joint_data_matrix[present_idx, :]
+    lat_lon_pairs = lat_lon_pairs[present_idx]
+    ID = df.ID[present_idx]
+
+    return joint_data_matrix, lat_lon_pairs, ID
 end
